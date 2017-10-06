@@ -132,7 +132,7 @@ abstract public class UIXComponentELTag extends UIComponentELTag
 
     if (expression.isLiteralText())
     {
-      bean.setProperty(key, expression.getValue(null));
+      bean.setProperty(key, expression.getValue(FacesContext.getCurrentInstance().getELContext()));
     }
     else
     {
@@ -157,7 +157,7 @@ abstract public class UIXComponentELTag extends UIComponentELTag
 
     if (expression.isLiteralText())
     {
-      bean.setProperty(key, _parseNameTokens(expression.getValue(null)));
+      bean.setProperty(key, _parseNameTokens(expression.getValue(FacesContext.getCurrentInstance().getELContext())));
     }
     else
     {
@@ -183,7 +183,7 @@ abstract public class UIXComponentELTag extends UIComponentELTag
     if (expression.isLiteralText())
     {
       bean.setProperty(key, 
-                       _parseNameTokensAsList(expression.getValue(null)));
+                       _parseNameTokensAsList(expression.getValue(FacesContext.getCurrentInstance().getELContext())));
     }
     else
     {
@@ -209,7 +209,7 @@ abstract public class UIXComponentELTag extends UIComponentELTag
     if (expression.isLiteralText())
     {
       bean.setProperty(key, 
-                       _parseNameTokensAsSet(expression.getValue(null)));
+                       _parseNameTokensAsSet(expression.getValue(FacesContext.getCurrentInstance().getELContext())));
     }
     else
     {
@@ -233,7 +233,7 @@ abstract public class UIXComponentELTag extends UIComponentELTag
 
     if (expression.isLiteralText())
     {
-      Object value = expression.getValue(null);
+      Object value = expression.getValue(FacesContext.getCurrentInstance().getELContext());
       if (value != null)
       { 
         if (value instanceof Number)
@@ -273,7 +273,7 @@ abstract public class UIXComponentELTag extends UIComponentELTag
 
     if (expression.isLiteralText())
     {
-      Object value = expression.getValue(null);
+      Object value = expression.getValue(FacesContext.getCurrentInstance().getELContext());
       if (value != null)
       {
         String[] strings = _parseNameTokens(value);
@@ -320,7 +320,7 @@ abstract public class UIXComponentELTag extends UIComponentELTag
 
     if (expression.isLiteralText())
     {
-      bean.setProperty(key, _parseISODate(expression.getValue(null)));
+      bean.setProperty(key, _parseISODate(expression.getValue(FacesContext.getCurrentInstance().getELContext())));
     }
     else
     {
@@ -345,7 +345,7 @@ abstract public class UIXComponentELTag extends UIComponentELTag
 
     if (expression.isLiteralText())
     {
-      Date d = _parseISODate(expression.getValue(null));
+      Date d = _parseISODate(expression.getValue(FacesContext.getCurrentInstance().getELContext()));
       Calendar c = Calendar.getInstance();
       TimeZone tz = RequestContext.getCurrentInstance().getTimeZone();
       if (tz != null)
