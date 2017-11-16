@@ -19,17 +19,21 @@
 package org.apache.myfaces.trinidadinternal.context.external;
 
 import java.util.Enumeration;
+import java.util.NoSuchElementException;
 
 /**
- * Enumeration without elements. This was origionally taken from MyFaces.
+ * Enumeration without elements
  *
+ * @author Anton Koinov (latest modification by $Author$)
  * @version $Revision$ $Date$
  */
-final class NullEnumeration implements Enumeration<Object>
+public final class NullEnumeration implements Enumeration
 {
-  static final NullEnumeration instance()
+  private static final NullEnumeration NULL_ENUMERATION = new NullEnumeration();
+
+  public static final NullEnumeration instance()
   {
-    return s_nullEnumeration;
+    return NULL_ENUMERATION;
   }
 
   public boolean hasMoreElements()
@@ -39,8 +43,6 @@ final class NullEnumeration implements Enumeration<Object>
 
   public Object nextElement()
   {
-    throw new UnsupportedOperationException("NullEnumeration has no elements");
+    throw new NoSuchElementException("NullEnumeration has no elements");
   }
-
-  private static final NullEnumeration s_nullEnumeration = new NullEnumeration();
 }

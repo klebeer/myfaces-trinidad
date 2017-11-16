@@ -240,6 +240,7 @@
       <plugin>
         <groupId>org.apache.myfaces.trinidadbuild</groupId>
         <artifactId>maven-i18n-plugin</artifactId>
+         <version>1.2.5</version>
         <configuration>
           <force>true</force>
           <targetPath>META-INF/adf/jsLibs/resources</targetPath>

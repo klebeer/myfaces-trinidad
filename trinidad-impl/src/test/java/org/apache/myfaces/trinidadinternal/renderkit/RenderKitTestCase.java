@@ -308,7 +308,7 @@ abstract public class RenderKitTestCase extends TestSuite
         return;
       }
 
-      super.run(result);
+     // super.run(result);
     }
 
     @Override
